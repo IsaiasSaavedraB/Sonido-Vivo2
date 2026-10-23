@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #0d0a08;
+    --secondary: #d4a373;
+    --secondary-light: #f0d5b0;
+    --accent: #e6b17e;
+    --bg: #f5f0eb;
+    --text: #1a120e;
+    --white: #ffffff;
+    --shadow: 0 12px 40px rgba(0,0,0,0.15);
+    --radius: 16px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --glass-bg: rgba(255,255,255,0.15);
+    --glass-border: rgba(255,255,255,0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 3px solid var(--secondary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo i {
+    font-size: 2.2rem;
+    color: var(--secondary);
+}
+.logo h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.logo span {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    font-weight: 300;
+    margin-left: 0.3rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+nav a {
+    color: #e0d6cc;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+nav a i {
+    margin-right: 0.4rem;
+}
+nav a:hover,
+nav a.activo {
+    background: var(--secondary);
+    color: var(--primary);
+    box-shadow: 0 4px 12px rgba(212,163,115,0.3);
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: var(--white);
+    transition: var(--transition);
+}
+.cart-icon:hover {
+    color: var(--secondary);
+    transform: scale(1.05);
+}
+.cart-icon span {
+    background: var(--secondary);
+    color: var(--primary);
+    border-radius: 50%;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    box-shadow: 0 2px 8px rgba(212,163,115,0.5);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    box-shadow: 0 6px 20px rgba(212,163,115,0.3);
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(212,163,115,0.4);
+}
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+.btn-secondary:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+.btn-danger {
+    background: #b33c3c;
+    color: white;
+}
+.btn-danger:hover {
+    background: #8a2a2a;
+}
+.btn i {
+    margin-right: 0.5rem;
+}
+footer {
+    background: var(--primary);
+    color: #d4c5b8;
+    margin-top: 3rem;
+}
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.footer-logo i {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-right: 0.5rem;
+}
+.footer-logo span {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.footer-logo p {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-top: 0.2rem;
+}
+.footer-links a {
+    color: #d4c5b8;
+    text-decoration: none;
+    margin: 0 0.8rem;
+    transition: var(--transition);
+}
+.footer-links a:hover {
+    color: var(--secondary);
+}
+.footer-social a {
+    color: #d4c5b8;
+    font-size: 1.4rem;
+    margin: 0 0.4rem;
+    transition: var(--transition);
+}
+.footer-social a:hover {
+    color: var(--secondary);
+    transform: translateY(-3px);
+}
+.footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+.cart-modal.active {
+    display: flex;
+}
+.cart-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    max-width: 520px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.3s ease;
+}
+.close-cart {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #999;
+    transition: var(--transition);
+}
+.close-cart:hover {
+    color: #b33c3c;
+    transform: rotate(90deg);
+}
+.cart-content h2 {
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+.cart-content h2 i {
+    color: var(--secondary);
+}
+#cart-items {
+    margin-bottom: 1rem;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #eee;
+}
+.cart-item span:first-child {
+    flex: 1;
+}
+.cart-item button {
+    background: none;
+    border: none;
+    color: #b33c3c;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+.cart-item button:hover {
+    transform: scale(1.2);
+}
+.cart-total {
+    font-size: 1.3rem;
+    text-align: right;
+    padding-top: 1rem;
+    border-top: 2px solid var(--secondary);
+    margin-top: 0.5rem;
+}
+#checkout-btn {
+    width: 100%;
+    margin-top: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+    }
+    nav ul {
+        justify-content: center;
+        margin: 0.5rem 0;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
